@@ -1,4 +1,4 @@
-# IR_Light_Gun
+# JB4PLG
 
 This is a highly efficient and versatile DIY lightgun system, with a strong community and active development.
 The main goal of this system is to provide a lightgun experience as close as possible from the arcade, while providing as much features and simplicity of use as possible.
