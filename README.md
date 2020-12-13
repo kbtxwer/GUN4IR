@@ -30,4 +30,17 @@ USB and Bluetooth Mouse and Controller compatible: since it's using standard HID
 - Fully featured GUI for supporters: for the supporters of this project, there is a full GUI with a lot of options and tools to configure every aspect of the gun.
 
 # How to
-Everything you need to start this project is in the pdf file in this repository
+Everything you need to start this project is in the pdf file in this repository here:
+https://github.com/JayBee-git/JB4PLG/blob/master/JB4PLG%20User%20Guide.pdf
+
+# Firmware and GUI download
+The files can be found here:
+https://github.com/JayBee-git/JB4PLG/tree/master/Releases
+
+# GUI license
+The firmware is free for anyone to use, but the GUI license is for donators only.
+More info here:
+http://forum.arcadecontrols.com/index.php/topic,161189.msg1697808.html#msg1697808
+
+# Changelog
+You can find the changelog either in the discord server of on the arcadecontrol forum (see the previous link)
