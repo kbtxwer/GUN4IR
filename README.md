@@ -1,56 +1,30 @@
 # IR_Light_Gun
 
-This is an arduino sketch for IR Light gun with the DFRobot camera.
+This is a highly efficient and versatile DIY lightgun system, with a strong community and active development.
+The main goal of this system is to provide a lightgun experience as close as possible from the arcade, while providing as much features and simplicity of use as possible.
 
-The project started as a small update of SAMCO's great IR Cam code ( https://github.com/samuelballantyne ), 
-but since I rewrote most of the code I decided to make my own Github.
+Before starting, a small obligatory disclaimer: like with any DIY project, I am not responsible for any damage you might do to your hardware/yourself. Be sure to read everything carefully before using my firmware. I am not a professional in electronics. I am giving all the schematics and pics as examples, use them at your own risks.
+And of course, this firmware cannot be sold alone nor in a package/hardware, it is completely free. If some people sold it to you, you were scammed.
 
-Here is the list of notable differences compared to SAMCO's original code:
-- A bit more precise mouse cursor; 
-  I kept SAMCO's efficient position calculation code, but made it float instead of integer. 
-  The difference is not huge (few pixels), but it removes a bit of cursor jittering
-- Faster cursor and less latency; 
-  since I rewrote everything without delay function in the main loop,
-  the exection is faster and the mouse has less lag.
-- Out of range detection; 
-  Detects if there is less than 2 points visible (out of the screen aiming, obsctacle...),
-  leave the cursor at the last known point (to avoid accidental cursor jump), and release the mouse control (to use a normal mouse).
-- Calibration parameters;
-  You can now edit where you want the calibration points to be on the screen.
-- Calibration error check; 
-  To avoid calibration problems, it will not let you save calibration points if it's out of range (for instance if you are too close from the screen).
-- Joystick mode support;
-  Now you can also use your Gun as a joystick for games that don't have mouse support.
-  You can enable/disable it by holding the calibration button more than 2 seconds.
-  There seems to be slightly more latency in this mode, so I would advice always using the mouse mode when possible.
-- Save calibration points and joystick/mouse mode in the arduino EEPROM;
-  Now your last calibration points, as well as the last mode used (joystick/mouse) are saved in the arduino EEPROM memory.
-  You can disable the option easily if you don't want to use it.
-- Added a button holding detection, with timer for each button;
-  A hold function will be triggered on whatever button you hold, with the timing you want.
-  Useful for things like fullauto recoil mode or simply having a secondary button function when holding.
-- Sleep timer;
-  This timer is used to pause any calculation when not aiming at the screen for a while.
-  I wanted to also show down the camera, but it doesn't seem to want to be switch OFF and ON again. (limitation of the Wire library?)
-- Position filter;
-  You can activate this option to make motion become a lot smoother, and removes lot of jittering,
-  but it also adds more latency. I recommend to leave it off unless you really have precision trouble.
-- Rumble motors and solenoid support;
-  If you connect a solenoid board or a rumble motor to pin 7 (or other pin if you change it), you will get rumble/recoil support.
-  It will be triggered once when the left button (gun trigger) is pushed, and switch to fullauto mode if the button is hold.
-  Be very careful if you use solenoid as you need the correct circuit for it, and using a bad timing settings might also damage it.
-  As the other options, you can change the settings at the beginning of the sketch file.
-
-Thing to add next:
-- Add button combo detection (for instance calibration + trigger).
-- A way to enable/disable cursor filter with a button combo.
-- Make a Windows tool to manage those options, and help with the configuration.
-- Investigating in new ways of improving even further the accuracy and viewing angle.
-- Trying to support PS2/XBox or other old hardware. If somebody can help me with the PS2/XBox protocol, that would be great :)
-- Add a RGB LED support for status/mode control and errors. 
-
-External libraries used from DFRobot, Jonathan Edgecome and Matthew Heironimus (big thanks to them). 
-You can find them here:
-https://github.com/DFRobot/DFRobotIRPosition
-https://github.com/jonathanedgecombe/absmouse
-https://github.com/MHeironimus/ArduinoJoystickLibrary
+Features List
+- Perfect line of sight accuracy: thanks to the 4 leds system, a ton of advanced math and pseudo 3D space calculation that does auto calibration and tracking in real time, you get a perfect line of sight accuracy all the time.
+- One time calibration: calibrate the camera sensor and leds once, and then forget it, the aiming will still work perfectly no matter the angle, position, or if you disconnect your gun.
+- Ultra low latency: this system uses a fast IR camera, and the firmware is heavily optimized, reducing the total processing latency to an average of 4ms (2ms ~ 7ms). Lowest latency of all modern lightgun systems.
+No special software needed: everything is handled by the arduino, making it plug and play with any system that supports a mouse/keyboard or a controller input. No extra software needed (the GUI is optional).
+- No external processing: no processing needed on the host platform, no cpu overhead, no overlay added to the game screen. You can use your games as usual.
+USB and Bluetooth Mouse and Controller compatible: since it's using standard HID mouse, gamepad and bluetooth, it's compatible with everything that supports a usb/bt mouse & gamepad.
+- Reduced minimum distance: thanks to the powerful tracking, this system allows you to play closer to the screen than most other modern systems, and even more if you add a wide lens or fisheye lens to the camera (any smartphone lens should work, even the cheap ones).
+- Support every kind of screen: you can use this system pretty much on any screen type/ratio/size, it will just work.
+- Full offscreen tracking/reload: it keeps track of your aiming even outside of the screen, and supports various offscreen options like offscreen reload.
+- Full feedback support: you can add a solenoid, rumble motor and RGB led to your gun, and fully configure and control how each of them behaves and reacts to your games. It supports various functions like full auto and synchronisation with ingame feedback (for supported games).
+- Auto reload support: you can activate it at any time to automatically reload your gun after 6 shoots.
+- Nunchuck support: you can plug a nunchuck controller if you need more buttons.
+- Setting saved inside the gun: each guns has its own memory, to save independent settings and customize each one to your liking.
+- Quick mode switching with mode button: you can add a “Mode” button to your gun to triggers calibration when holding, or to quickly switch various modes:
+   + Content mode (fullscreen/4:3).
+   + Offscreen mode.
+   + Input mode.
+   + Pedal mode.
+   + Auto reload mode.
+- Full serial command support: you can use serial commands to set every gun mode, and sync the game feedback with the gun feedback.
+- Fully featured GUI for supporters: for the supporters of this project, there is a full GUI with a lot of options and tools to configure every aspect of the gun.
