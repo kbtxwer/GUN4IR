@@ -6,7 +6,7 @@ The main goal of this system is to provide a lightgun experience as close as pos
 Before starting, a small obligatory disclaimer: like with any DIY project, I am not responsible for any damage you might do to your hardware/yourself. Be sure to read everything carefully before using my firmware. I am not a professional in electronics. I am giving all the schematics and pics as examples, use them at your own risks.
 And of course, this firmware cannot be sold alone nor in a package/hardware, it is completely free. If some people sold it to you, you were scammed.
 
-Features List
+# Features List
 - Perfect line of sight accuracy: thanks to the 4 leds system, a ton of advanced math and pseudo 3D space calculation that does auto calibration and tracking in real time, you get a perfect line of sight accuracy all the time.
 - One time calibration: calibrate the camera sensor and leds once, and then forget it, the aiming will still work perfectly no matter the angle, position, or if you disconnect your gun.
 - Ultra low latency: this system uses a fast IR camera, and the firmware is heavily optimized, reducing the total processing latency to an average of 4ms (2ms ~ 7ms). Lowest latency of all modern lightgun systems.
@@ -28,3 +28,6 @@ USB and Bluetooth Mouse and Controller compatible: since it's using standard HID
    + Auto reload mode.
 - Full serial command support: you can use serial commands to set every gun mode, and sync the game feedback with the gun feedback.
 - Fully featured GUI for supporters: for the supporters of this project, there is a full GUI with a lot of options and tools to configure every aspect of the gun.
+
+# How to
+Everything you need to start this project is in the pdf file in this repository
