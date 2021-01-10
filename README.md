@@ -1,4 +1,4 @@
-# JB4PLG
+# GUN4IR
 
 This is a highly efficient and versatile DIY lightgun system, with a strong community and active development.
 The main goal of this system is to provide a lightgun experience as close as possible from the arcade, while providing as much features and simplicity of use as possible.
@@ -30,11 +30,10 @@ USB and Bluetooth Mouse and Controller compatible: since it's using standard HID
 - Fully featured GUI for supporters: for the supporters of this project, there is a full GUI with a lot of options and tools to configure every aspect of the gun.
 
 # How to
-Everything you need to start this project is in the pdf file in this repository here:
-https://github.com/JayBee-git/JB4PLG/blob/master/JB4PLG%20User%20Guide.pdf
+Everything you need to start this project is in the pdf user guide in this repository.
 
 # Firmware and GUI download
-The files can be found here:
+The files can be found in the repository or the release folder here:
 https://github.com/JayBee-git/JB4PLG/tree/master/Releases
 
 # GUI license
